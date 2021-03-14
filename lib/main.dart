@@ -49,7 +49,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         Navigator.push(
           context,
           //MaterialPageRoute(builder: (context) => Lists()),
-          MaterialPageRoute(builder: (context) => TakePictureScreen(camera: globals.camera)),
+          MaterialPageRoute(builder: (context) => Lists()),
         );
       }
       else if (_selectedIndex == 1){
@@ -74,17 +74,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: const Text('BottomNavigationBar Sample'),
       ),
-      /*body: Center(
+      body: Center(
         child: ElevatedButton(
-          child: Text('Open route'),
+          child: Text('Open Camera'),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Lists()),
+              MaterialPageRoute(builder: (context) => TakePictureScreen(camera: globals.camera)),
             );
           },
         ),
-      ),*/
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -165,50 +165,6 @@ class Profile extends StatelessWidget {
   }
 }
 
-/*
-class TakePictureScreen(camera: firstCamera) extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
-*/
-
-/*
-Future<void> main() async {
-  // Ensure that plugin services are initialized so that `availableCameras()`
-  // can be called before `runApp()`
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Obtain a list of the available cameras on the device.
-  final cameras = await availableCameras();
-
-  // Get a specific camera from the list of available cameras.
-  final firstCamera = cameras.first;
-
-  runApp(
-    MaterialApp(
-      theme: ThemeData.dark(),
-      home: TakePictureScreen(
-        // Pass the appropriate camera to the TakePictureScreen widget.
-        camera: firstCamera,
-      ),
-    ),
-  );
-}
-*/
 // A screen that allows users to take a picture using a given camera.
 class TakePictureScreen extends StatefulWidget {
   final CameraDescription camera;
